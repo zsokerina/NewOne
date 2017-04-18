@@ -6,12 +6,27 @@
         xmlns:local="clr-namespace:WpfApplication1"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <local:ViewModel></local:ViewModel>
+    </Window.DataContext>
+    <Window.Resources>
+        <local:StructConvertor x:Key="WayOfPhoto"></local:StructConvertor>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <UniformGrid Grid.Column="0" Margin="10,10,10,10">
+            <Border BorderThickness="1" BorderBrush="Black">
+                <Button Command="{Binding ChangePhoto}" CommandParameter="{Binding WayImage}">
+                    <Button.Background>
+                        <ImageBrush ImageSource="{Binding WayImage,Converter={StaticResource ResourceKey=WayOfPhoto}}"></ImageBrush>
+                    </Button.Background>
+                </Button>
+            </Border>
+            
+            
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
@@ -23,9 +38,6 @@
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
-            <Rectangle Stroke="Black">
-
-            </Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
             <Rectangle Stroke="Black"></Rectangle>
@@ -84,8 +96,8 @@
             <TextBox Margin="15,0,50,10"></TextBox>
             <Label Margin="10,0,10,0" FontSize="13">Найдено мин</Label>
             <TextBox Margin="15,0,50,10"></TextBox>
-            <Label Margin="10,0,10,0" FontSize="13">Осталось мин</Label>
-            <TextBox Margin="15,0,50,10"></TextBox>
+            <Label Margin="10,0,10,0" FontSize="13" >Осталось мин</Label>
+            <TextBox Margin="15,0,50,10" Text="{Binding CountBomb}"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
