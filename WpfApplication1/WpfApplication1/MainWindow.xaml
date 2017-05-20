@@ -19,7 +19,7 @@
         </Grid.ColumnDefinitions>
         <UniformGrid Grid.Column="0" Margin="10,10,10,10">
             <Border BorderThickness="1" BorderBrush="Black">
-                <Button Command="{Binding ChangePhoto}" CommandParameter="{Binding WayImage}">
+                <Button Command="{Binding ChangePhoto}" CommandParameter="{Binding WayImage}" Width="50" Height="50">
                     <Button.Background>
                         <ImageBrush ImageSource="{Binding WayImage,Converter={StaticResource ResourceKey=WayOfPhoto}}"></ImageBrush>
                     </Button.Background>
@@ -98,6 +98,7 @@
             <TextBox Margin="15,0,50,10"></TextBox>
             <Label Margin="10,0,10,0" FontSize="13" >Осталось мин</Label>
             <TextBox Margin="15,0,50,10" Text="{Binding CountBomb}"></TextBox>
+            
         </StackPanel>
     </Grid>
 </Window>
