@@ -17,12 +17,16 @@
         <ItemsControl Grid.Column="0" Margin="10,10,10,10" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button></Button>
+                    <Button Command="{Binding ChangeImage}" CommandParameter="{Binding}" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="{Binding Image}"></ImageBrush>
+                        </Button.Background>
+                    </Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid>
+                    <UniformGrid Columns="8" Rows="8">
                     </UniformGrid>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
@@ -33,7 +37,7 @@
             <Label Margin="10,0,10,0" FontSize="13">Найдено мин</Label>
             <TextBox Margin="15,0,50,10"></TextBox>
             <Label Margin="10,0,10,0" FontSize="13" >Осталось мин</Label>
-            <TextBox Margin="15,0,50,10" Text="{Binding CountBomb}"></TextBox>
+            <TextBox Margin="15,0,50,10"></TextBox>
         </StackPanel>
     </Grid>
 </Window>

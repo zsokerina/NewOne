@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangeImageCommand.cs" />
+    <Compile Include="OneElement.cs" />
     <Compile Include="ViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -95,6 +97,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Picture.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Bomb.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Background.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
