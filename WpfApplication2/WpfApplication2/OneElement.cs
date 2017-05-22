@@ -30,8 +30,12 @@ namespace WpfApplication2
         }
 
         public ICommand ChangeImage { get; set; }
-        public OneElement()
+
+        public OneElement(Boolean Bomb,int CountBombAround,string Image)
         {
+            this.Bomb = Bomb;
+            this.CountBombAround = CountBombAround;
+            this.Image = Image;
             ChangeImage = new ChangeImageCommand();
 
         }

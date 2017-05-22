@@ -9,6 +9,7 @@ using System.Windows.Input;
 
 namespace WpfApplication2
 {
+
     class ViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -19,18 +20,6 @@ namespace WpfApplication2
         }
 
         public ObservableCollection<OneElement> Elements {get;set;}
-
-        string _CountBomb;
-        public string CountBomb
-        {
-            get { return _CountBomb; }
-            set
-            {
-                _CountBomb = value;
-                DoPropertyChanged("CountBomb");
-            }
-        }
-
 
         public ViewModel()
         {
@@ -52,15 +41,13 @@ namespace WpfApplication2
                     else a[i, j] = 0;
                 }
 
-            _CountBomb = max.ToString();
-
             Elements = new ObservableCollection<OneElement> { };
 
             OneElement Element;
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
-                    if (a[i, j] == 1) Element = new OneElement {Image= "Image/Picture.jpg", Bomb = true, CountBombAround = 0 };
+                    if (a[i, j] == 1) Element = new OneElement ( true,  0, "Image/Picture.jpg");
                         else {
                         count = 0;
                         count = -1;
@@ -78,7 +65,7 @@ namespace WpfApplication2
 
                         if (count == -1) count = a[i + 1, j] + a[i - 1, j] + a[i, j - 1] + a[i, j + 1];
 
-                        Element = new OneElement { Image = "Image/Picture.jpg", Bomb = false, CountBombAround = count };
+                        Element = new OneElement(false, count, "Image/Picture.jpg");
                     }
                     Elements.Add(Element);
 

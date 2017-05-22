@@ -9,6 +9,17 @@
     <Window.DataContext>
         <local:ViewModel></local:ViewModel>
     </Window.DataContext>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DictionaryResources.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Window.Background >
+        <ImageBrush ImageSource="Image/Picture.jpg"></ImageBrush>
+    </Window.Background>
+ 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
@@ -17,7 +28,7 @@
         <ItemsControl Grid.Column="0" Margin="10,10,10,10" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding ChangeImage}" CommandParameter="{Binding}" >
+                    <Button Command="{Binding ChangeImage}" CommandParameter="{Binding}">
                         <Button.Background>
                             <ImageBrush ImageSource="{Binding Image}"></ImageBrush>
                         </Button.Background>
@@ -32,12 +43,12 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         <StackPanel Grid.Column="1">
-            <Label Margin="10,10,10,0" FontSize="13">Общее время</Label>
-            <TextBox Margin="15,0,50,10"></TextBox>
-            <Label Margin="10,0,10,0" FontSize="13">Найдено мин</Label>
-            <TextBox Margin="15,0,50,10"></TextBox>
-            <Label Margin="10,0,10,0" FontSize="13" >Осталось мин</Label>
-            <TextBox Margin="15,0,50,10"></TextBox>
+            <Label Margin="10,140,10,0" FontSize="13" Style="{StaticResource TextStyle}">Общее время</Label>
+            <TextBox Margin="0,0,50,10" Height="20"  Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
+            <Label Margin="10,0,10,0" FontSize="13" Style="{StaticResource TextStyle}">Найдено мин</Label>
+            <TextBox Margin="0,0,50,10" Height="20" Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
+            <Label Margin="10,0,10,0" FontSize="13" Style="{StaticResource TextStyle}">Осталось мин</Label>
+            <TextBox Margin="0,0,50,10" Height="20" Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
