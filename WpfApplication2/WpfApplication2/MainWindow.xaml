@@ -28,11 +28,7 @@
         <ItemsControl Grid.Column="0" Margin="10,10,10,10" ItemsSource="{Binding Elements}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding ChangeImage}" CommandParameter="{Binding}">
-                        <Button.Background>
-                            <ImageBrush ImageSource="{Binding Image}"></ImageBrush>
-                        </Button.Background>
-                    </Button>
+                    <Button Command="{Binding ChangeImage}" CommandParameter="{Binding}" Template="{StaticResource ButtonTemplate}"></Button>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
             <ItemsControl.ItemsPanel>
@@ -43,12 +39,14 @@
             </ItemsControl.ItemsPanel>
         </ItemsControl>
         <StackPanel Grid.Column="1">
-            <Label Margin="10,140,10,0" FontSize="13" Style="{StaticResource TextStyle}">Общее время</Label>
+            <Label Margin="10,100,10,0" FontSize="13" Style="{StaticResource TextStyle}">Общее время</Label>
             <TextBox Margin="0,0,50,10" Height="20"  Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
             <Label Margin="10,0,10,0" FontSize="13" Style="{StaticResource TextStyle}">Найдено мин</Label>
             <TextBox Margin="0,0,50,10" Height="20" Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
             <Label Margin="10,0,10,0" FontSize="13" Style="{StaticResource TextStyle}">Осталось мин</Label>
             <TextBox Margin="0,0,50,10" Height="20" Template="{StaticResource BoxColor}" Width="90" Style="{StaticResource BoxAnimation}"></TextBox>
+            <Button Margin="17,0,65,0" Height="30" Content="Сохранить результат игры" Command="{Binding SaveResult}" 
+                    CommandParameter="{Binding}"></Button>
         </StackPanel>
     </Grid>
 </Window>

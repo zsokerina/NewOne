@@ -18,26 +18,30 @@ namespace WpfApplication2
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
+        public int MaxBomb { get; set; }
 
         public ObservableCollection<OneElement> Elements {get;set;}
 
+        public ICommand SaveResult { get; set; }
+
         public ViewModel()
         {
+            SaveResult = new SaveResultCommand();
             Random r = new Random();
-            int max = r.Next(10, 21);
+            MaxBomb = r.Next(10, 21);
             int count = 0;
 
             int[,] a=new int [8,8];
             
-            for(int i=0; i<max+1;i++)
+            for(int i=0; i<MaxBomb+1;i++)
             {
                 a[r.Next(0, 8), r.Next(0, 8)] = 1;
             }
-            max = 0;
+            MaxBomb = 0;
             for (int i = 0; i < 8; i++)
                 for (int j = 0; j < 8; j++)
                 {
-                    if (a[i, j] == 1) max = max + 1;
+                    if (a[i, j] == 1) MaxBomb = MaxBomb + 1;
                     else a[i, j] = 0;
                 }
 

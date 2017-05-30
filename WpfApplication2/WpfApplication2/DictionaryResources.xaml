@@ -11,9 +11,7 @@
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Foreground" Value="White"></Setter>
             </Trigger>
-            
         </Style.Triggers>
-        
     </Style>
 
     <ControlTemplate x:Key="BoxColor" TargetType="TextBox">
@@ -48,5 +46,18 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
+
+    <ControlTemplate x:Key="ButtonTemplate" TargetType="Button" >
+        <Border CornerRadius="3" BorderThickness="1" BorderBrush="Brown">
+            <ContentPresenter 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                RecognizesAccessKey="True"/>
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding Image}"></ImageBrush>
+            </Border.Background>
+        </Border>
+    </ControlTemplate>
+
 
 </ResourceDictionary>
