@@ -1,0 +1,31 @@
+﻿<Controls:MetroWindow x:Class="Test.WindowAuthors"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test"
+        mc:Ignorable="d"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" 
+        Title="Автор" Height="300" Width="300">
+    <StackPanel DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        <StackPanel Orientation="Horizontal">
+            <Label>Фамилия</Label>
+            <Label>Имя</Label>
+            <Label>Отчество</Label>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBox Text="{Binding SecondName}"></TextBox>
+            <TextBox Text="{Binding FirstName}"></TextBox>
+            <TextBox Text="{Binding FatherName}"></TextBox>
+            <Button Content="Сохранить изменения" Command="{Binding EditAuthor}"></Button>
+        </StackPanel>
+        <Label Content="Книги писателя:"></Label>
+        <ListBox ItemsSource="{Binding BookOfAuthor}" SelectedItem="{Binding BookName}"></ListBox>
+        <Label Content="Название книги:"></Label>
+        <TextBox Text="{Binding BookName}"></TextBox>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Удалить книгу" Command="{Binding DeleteBookFromAuthor}"></Button>
+            <Button Content="Добавить книгу" Command="{Binding AddBookToAuthor}"></Button>
+        </StackPanel>
+    </StackPanel>
+</Controls:MetroWindow>
