@@ -121,7 +121,7 @@ namespace Test
                       
             if (CheckAuthor())
             {
-                NewAuthor = SelectedAuthor;
+                if (BookOfAuthor.Count != 0) BookOfAuthor.Clear();
                 using (Model1 context = new Model1())
                 {
                     ObservableCollection<Book> Books = context.Authors.Where(c => (c.SecondName == SelectedAuthor.SecondName) & (c.FatherName == SelectedAuthor.FatherName) & (c.FirstName == SelectedAuthor.FirstName)).Select(c => c.Books).FirstOrDefault();
@@ -130,6 +130,8 @@ namespace Test
                         BookOfAuthor.Add(b.BookName);
                     }
                 }
+                NewAuthor = SelectedAuthor;
+                BookName = null;
                 WindowAuthors WindowNew = new WindowAuthors();
                 WindowNew.Show();
             }
