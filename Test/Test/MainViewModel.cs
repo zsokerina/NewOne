@@ -133,7 +133,7 @@ namespace Test
                 NewAuthor = SelectedAuthor;
                 BookName = null;
                 WindowAuthors WindowNew = new WindowAuthors();
-                WindowNew.Show();
+                WindowNew.ShowDialog();
             }
             else MessageBox.Show("Автор не найден");
         }
@@ -245,7 +245,7 @@ namespace Test
                 NameOfBook = BookName;
                 SelectedAuthor = null;
                 WindowBooks WindowNew = new WindowBooks();
-                WindowNew.Show();
+                WindowNew.ShowDialog();
             }
             else MessageBox.Show("Книга не найдена");
         }

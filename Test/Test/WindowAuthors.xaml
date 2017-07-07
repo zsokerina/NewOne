@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Test"
         mc:Ignorable="d"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" 
-        Title="Автор" Height="300" Width="300">
+        Title="АВТОР" Height="300" Width="300">
     <StackPanel DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
         <StackPanel Orientation="Horizontal">
             <Label>Фамилия</Label>

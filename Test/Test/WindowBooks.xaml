@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Test"
         mc:Ignorable="d"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"               
-        Title="WindowBooks" Height="300" Width="300">
+        Title="КНИГА" Height="300" Width="300" Topmost="True">
     <StackPanel DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
         <Grid>
             <Grid.ColumnDefinitions>
