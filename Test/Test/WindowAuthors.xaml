@@ -13,7 +13,7 @@
             <Label>Имя</Label>
             <Label>Отчество</Label>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" DataContext="{Binding SelectedAuthor}">
             <TextBox Text="{Binding SecondName}"></TextBox>
             <TextBox Text="{Binding FirstName}"></TextBox>
             <TextBox Text="{Binding FatherName}"></TextBox>

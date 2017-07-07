@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    class AuthorViewModel:ViewModelBase
+    public class AuthorViewModel:ViewModelBase
     {
         private string firstName;
         private string secondName;

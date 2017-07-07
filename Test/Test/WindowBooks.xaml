@@ -1,0 +1,68 @@
+﻿<Controls:MetroWindow x:Class="Test.WindowBooks"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test"
+        mc:Ignorable="d"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"               
+        Title="WindowBooks" Height="300" Width="300">
+    <StackPanel DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Vertical">
+                <Label Content="Название книги" HorizontalAlignment="Left" Width="146"></Label>
+                <TextBox Text="{Binding BookName}"></TextBox>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <Label Content=" "></Label>
+                <Button Content="Сохранить изменения" Command="{Binding EditBook}"></Button>
+            </StackPanel>
+            
+        </Grid>
+        <Label Content="Авторы книги:"></Label>
+        <ListBox ItemsSource="{Binding AuthorsOfBook}" SelectedItem="{Binding SelectedAuthor}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=SecondName}" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Path=FirstName}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding Path=FatherName}" Grid.Column="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Grid DataContext="{Binding SelectedAuthor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
+                <Label>Фамилия</Label>
+                <TextBox Text="{Binding SecondName}"></TextBox>             
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="1" >
+                    <Label>Имя</Label>
+                <TextBox Text="{Binding FirstName}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column="2" >
+                <Label>Отчество</Label>
+                <TextBox Text="{Binding FatherName}"></TextBox>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="30,10,10,10" Content="Удалить автора" Command="{Binding DeleteAuthorFromBook}"></Button>
+            <Button Margin="10,10,10,10" Content="Добавить автора" Command="{Binding AddAuthorToBook}"></Button>
+        </StackPanel>
+    </StackPanel>
+</Controls:MetroWindow>

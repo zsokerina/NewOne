@@ -8,34 +8,57 @@
         mc:Ignorable="d"
         Title="Картотека" Height="350" Width="525">
     <StackPanel DataContext="{Binding MainViewModel, Source={StaticResource Locator}}">
-        <ListBox ItemsSource="{Binding AllAuthors}">
+        <ListBox ItemsSource="{Binding AllAuthors}" SelectedItem="{Binding SelectedAuthor}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Margin="5" Orientation="Horizontal">
-                        <TextBlock Text="{Binding Path=SecondName}" />
-                        <TextBlock Text="{Binding Path=FirstName}" />
-                        <TextBlock Text="{Binding Path=FatherName}" />
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Path=SecondName}" Grid.Column="0"/>
+                        <TextBlock Text="{Binding Path=FirstName}" Grid.Column="1"/>
+                        <TextBlock Text="{Binding Path=FatherName}" Grid.Column="2"/>
+                    </Grid>
                 </DataTemplate>
                 </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Показать список авторов" Command="{Binding ShowAllAuthors}"></Button>
-        <StackPanel Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Column="0">
             <Label>Фамилия</Label>
-            <TextBox Text="{Binding SecondName}"></TextBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Label>Имя</Label>
-            <TextBox Text="{Binding FirstName}"></TextBox>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal">
+                <Label>Имя</Label>
             <Label>Отчество</Label>
-            <TextBox Text="{Binding FatherName}" ></TextBox>
-        </StackPanel>
+           </StackPanel>
+            <StackPanel Orientation="Vertical" DataContext="{Binding SelectedAuthor}" Grid.Column="1">
+                <TextBox Text="{Binding SecondName}"></TextBox>
+                <TextBox Text="{Binding FirstName}"></TextBox>
+                <TextBox Text="{Binding FatherName}" ></TextBox>
+            </StackPanel>
+        </Grid>
         <StackPanel Orientation="Horizontal">
-            <Button Content="Найти автора" Command="{Binding OpenWindowAuthor}"></Button>
+            <Button Content="Профиль автора" Command="{Binding OpenWindowAuthor}"></Button>
             <Button Content="Удалить автора" Command="{Binding DeleteAuthor}"></Button>
             <Button Content="Добавить автора" Command="{Binding AddAuthor}"></Button>
+        </StackPanel>
+
+        <Label Margin="10,10,10,10"></Label>
+
+        <ListBox ItemsSource="{Binding AllBooks}" SelectedItem="{Binding BookName}"></ListBox>
+        <Button Content="Показать список книг" Command="{Binding ShowAllBooks}"></Button>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Название книги"></Label>
+            <TextBox Text="{Binding BookName}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Профиль книги" Command="{Binding OpenWindowBook}"></Button>
+            <Button Content="Удалить книгу" Command="{Binding DeleteBook}"></Button>
+            <Button Content="Добавить книгу" Command="{Binding AddBook}"></Button>
         </StackPanel>
     </StackPanel>
 </Controls:MetroWindow>

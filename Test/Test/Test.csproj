@@ -99,6 +99,9 @@
     <Compile Include="WindowAuthors.xaml.cs">
       <DependentUpon>WindowAuthors.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowBooks.xaml.cs">
+      <DependentUpon>WindowBooks.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,6 +115,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="WindowAuthors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
